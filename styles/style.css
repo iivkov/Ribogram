@@ -1,0 +1,62 @@
+main {
+    padding: 1px;
+    margin-top: 0px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #000058;
+}
+
+.user_form {
+	width: 40%;
+	margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 50px;
+	color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+	border: 2px solid white;
+    padding: 20px;
+}
+
+.logo {
+    height: 100px;
+	width: 100px;
+}
+
+.question {
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    color: gray;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+.input {
+	margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    height: 30px;
+	width: 93%;
+	padding: 5px 10px;
+	font-size: 15px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+
+.button {
+    width: 100px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    background-color: #FEDF00;
+	padding: 10px 10px;
+	font-size: 15px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
