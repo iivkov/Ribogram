@@ -15,7 +15,7 @@
         <div class="user_form" aria-labelledby="user_form">
             <img src="images/logo.png" class="logo">
             <h1>Ribogram</h1>
-            <form method="post" action="login.php">
+            <form method="post" action="index.php">
             <?php echo display_error(); ?>
 		        <input type="text" class="input" name="username" placeholder="Unesite korisničko ime">
 		        <input type="password"  class="input" name="password" placeholder="Unesite zaporku">
