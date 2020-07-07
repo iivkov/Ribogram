@@ -1,4 +1,4 @@
-<!-- <?php include '../scripts/functions.php' ?> -->
+<?php include '../scripts/functions.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +14,8 @@
 
     <div class="user_form">
             <form method="post" action="registration.php">
-                <input type="text" class="input" name="username" placeholder="Unesite korisničko ime">
+            <?php echo display_error(); ?>
+                <input type="text" class="input" name="username" placeholder="Unesite korisničko ime" value="<?php echo $username; ?>">
                 <input type="text" class="input" name="description" placeholder="Unesite opis">
                 <input type="file" class="input" name="image">
 		        <input type="password"  class="input" name="password_1" placeholder="Unesite zaporku">
