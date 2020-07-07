@@ -12,7 +12,7 @@
 <body>
     <main>
 
-        <div class="user_form">
+        <div class="user_form" aria-labelledby="user_form">
             <img src="images/logo.png" class="logo">
             <h1>Ribogram</h1>
             <form method="post" action="login.php">
