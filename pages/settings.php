@@ -14,7 +14,7 @@
 
     <div class="user_form">
         <h1>Izmjena podataka</h1>
-            <form method="post" action="registration.php">
+            <form method="post" action="settings.php">
             
             <?php echo display_error();
             if (isset($_SESSION['user']))
