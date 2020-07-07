@@ -60,3 +60,16 @@ main {
 	border-radius: 5px;
 	border: 1px solid gray;
 }
+
+.error {
+    background-color: red;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+	width: 93%;
+	padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+	border: 1px solid yellow;
+}
