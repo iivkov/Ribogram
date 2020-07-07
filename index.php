@@ -1,4 +1,4 @@
-<!-- <?php include '../scripts/functions.php' ?> -->
+<?php include 'scripts/functions.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,11 +16,12 @@
             <img src="images/logo.png" class="logo">
             <h1>Ribogram</h1>
             <form method="post" action="login.php">
+            <?php echo display_error(); ?>
 		        <input type="text" class="input" name="username" placeholder="Unesite korisničko ime">
 		        <input type="password"  class="input" name="password" placeholder="Unesite zaporku">
                 <button type="submit" class="button" name="login_btn">Prijava</button>
                 <p>
-		            <a href="scripts/registration.php" class="question">Niste se registrirali? </a>
+		            <a href="pages/registration.php" class="question">Niste se registrirali? </a>
 	            </p>
             </form>
         <div/>
