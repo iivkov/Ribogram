@@ -4,5 +4,5 @@ CREATE TABLE users (
 	description VARCHAR(50) NOT NULL,
 	image VARCHAR(100) NOT NULL,
 	password VARCHAR(50) NOT NULL,
-	CONSTRAINT users_pk PRIMARY_KEY(id_user)
+	CONSTRAINT users_pk PRIMARY KEY(id_user)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
