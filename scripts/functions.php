@@ -153,18 +153,6 @@ function update()
     {
 		array_push($errors, "Unesene zaporke se ne podudaraju.");
   	}
-
-//   $user_check_query = "SELECT * FROM users WHERE username='$username' LIMIT 1";
-//   $result = mysqli_query($db, $user_check_query);
-//   $user = mysqli_fetch_assoc($result);
-  
-//   if ($user) 
-//   {
-//     if ($user['username'] === $username) 
-//     {
-//       array_push($errors, "Već je registriran korisnik s navedenim korisničkim imenom.");
-//     }
-//   }
   
   if (count($errors) == 0) 
   {
