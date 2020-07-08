@@ -32,12 +32,15 @@
     $id_user = $_SESSION['user']['id_user'];
     $query = "SELECT * FROM images WHERE id_user=$id_user";
     $result = mysqli_query($db, $query);
-    while ($row = mysqli_fetch_array($result)) {
-      echo "<div id='img_div'>";
-      	echo "<img src='../images/".$row['image']."' >";
-      	echo "<p>".$row['image_info']."</p>";
-      echo "</div>";
+    if (mysqli_num_rows($result) > 0) { //novo dodano
+        while ($row = mysqli_fetch_array($result)) {
+        echo "<div id='img_div'>";
+            echo "<img src='../images/".$row['image']."' >";
+            echo "<p>".$row['image_info']."</p>";
+            echo '<td><a href="delete_image.php?id_image='.$row["id_image"].'">Obriši</a></td>';
+        echo "</div>";
     }
+}
   ?>
     </article>
 

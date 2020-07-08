@@ -180,6 +180,7 @@ function add()
     $target = "../images/".basename($image);
     $sql = "INSERT INTO images (image, image_info, access, id_user) VALUES ('$image', '$image_info', '$access', '$id_user')";
     mysqli_query($db, $sql);
+    header('location: myprofile.php');
 
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target))
     {
