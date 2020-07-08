@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 session_start();
 
 $username = "";
@@ -90,9 +90,24 @@ function register()
     }
 }
 
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['user']);
+	header("location: ../index.php");
+}
+
 if (isset($_POST['login_btn'])) 
 {
 	login();
+}
+
+function isLoggedIn()
+{
+	if (isset($_SESSION['user'])) {
+		return true;
+	}else{
+		return false;
+	}
 }
 
 function login()

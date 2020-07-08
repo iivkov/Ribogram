@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ribogram – Početak rada</title>
+    <title>Ribogram – Korisnički profil</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
@@ -14,10 +14,7 @@
 
     <article>
     <div id="start_head">
-            <!-- <img class="logo" src="../images/logo.png" /> -->
 			<ul>
-                <!-- start.php je dodan samo radi lakšeg kretanja -->
-                <li><a href="start.php">Slike raznih korisnika</a></li>
                 <li><a href="myprofile.php">Profil</a></li>
                 <li><a href="settings.php">Postavke</a></li>
 			</ul>
@@ -25,14 +22,30 @@
     </article>
 
     <article>
+    <div class="user_profile">
+        <?php
+            $id_user = $_GET['id_user'];
+            $query = "SELECT * FROM users WHERE id_user=$id_user";
+            $user = mysqli_fetch_assoc(mysqli_query($db, $query));
+            $username = $user['username'];
+            $image = $user['image'];
+        ?>
+        <?php
+        echo "<img src='../images/".$user['image']."' >";
+        ?>
+        <h1><?php echo $username;?></h1>
+        <div/>
+    </article>
+
+    <article>
     <?php
-    $query = "SELECT * FROM images WHERE access='public'";
+    $id_user = $_GET['id_user'];
+    $query = "SELECT * FROM images WHERE id_user=$id_user AND access='public'";
     $result = mysqli_query($db, $query);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
         echo "<div id='img_div'>";
             echo "<img src='../images/".$row['image']."' >";
-            echo '<td><a href="user_profile.php?id_user='.$row["id_user"].'">Korisnik</a></td>';
             echo "<p>".$row['image_info']."</p>";
         echo "</div>";
     }
