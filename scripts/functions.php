@@ -171,16 +171,33 @@ if (isset($_POST['add_btn']))
 
 function add()
 {
-    global $db, $msg;
+    global $db, $errors, $msg, $image, $image_info, $access;
     $msg = "";
     $image = $_FILES['image']['name'] ?? '';
     $image_info = $_POST['image_info'] ?? '';
-    $access = mysqli_real_escape_string($db, $_POST['access']);
+    $access = $_POST['access'] ?? '';
     $id_user = $_SESSION['user']['id_user'];
     $target = "../images/".basename($image);
-    $sql = "INSERT INTO images (image, image_info, access, id_user) VALUES ('$image', '$image_info', '$access', '$id_user')";
-    mysqli_query($db, $sql);
-    header('location: myprofile.php');
+
+    if (empty($image))
+    { 
+        array_push($errors, "Potrebno je postaviti sliku."); 
+    }
+    if (empty($image_info))
+    { 
+        array_push($errors, "Potrebno je unijeti opis slike."); 
+    }
+    if (empty($access))
+    { 
+        array_push($errors, "Potrebno je postaviti pravo pristupa."); 
+    }
+
+    if (count($errors) == 0) 
+    {
+        $sql = "INSERT INTO images (image, image_info, access, id_user) VALUES ('$image', '$image_info', '$access', '$id_user')";
+        mysqli_query($db, $sql);
+        header('location: myprofile.php');
+    }
 
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target))
     {

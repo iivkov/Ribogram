@@ -23,7 +23,18 @@
     </article>
 
     <article>
-        <h1>Galerija</h1>
+    <?php
+    $query = "SELECT * FROM images WHERE access='public'";
+    $result = mysqli_query($db, $query);
+    if (mysqli_num_rows($result) > 0) { //novo dodano
+        while ($row = mysqli_fetch_array($result)) {
+        echo "<div id='img_div'>";
+            echo "<img src='../images/".$row['image']."' >";
+            echo "<p>".$row['image_info']."</p>";
+        echo "</div>";
+    }
+}
+  ?>
     </article>
 
     </main>
