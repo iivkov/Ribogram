@@ -163,3 +163,30 @@ function update()
       header('location: ../index.php');
     }
 }
+
+if (isset($_POST['add_btn'])) 
+{
+	add();
+}
+
+function add()
+{
+    global $db, $msg;
+    $msg = "";
+    $image = $_FILES['image']['name'] ?? '';
+    $image_info = $_POST['image_info'] ?? '';
+    $access = mysqli_real_escape_string($db, $_POST['access']);
+    $id_user = $_SESSION['user']['id_user'];
+    $target = "../images/".basename($image);
+    $sql = "INSERT INTO images (image, image_info, access, id_user) VALUES ('$image', '$image_info', '$access', '$id_user')";
+    mysqli_query($db, $sql);
+
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $target))
+    {
+        $msg = "Image uploaded successfully";
+    }
+    else
+    {
+        $msg = "Failed to upload image";
+    }
+}

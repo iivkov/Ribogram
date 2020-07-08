@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ribogram – Početak rada</title>
+    <title>Ribogram – Moj profil</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
@@ -14,7 +14,6 @@
 
     <article>
     <div id="start_head">
-            <!-- <img class="logo" src="../images/logo.png" /> -->
 			<ul>
                 <li><a href="myprofile.php">Profil</a></li>
                 <li><a href="settings.php">Postavke</a></li>
@@ -23,7 +22,9 @@
     </article>
 
     <article>
-        <h1>Galerija</h1>
+        <p>
+            <a href="add.php">Dodaj novu sliku</a>
+	    </p>
     </article>
 
     </main>
