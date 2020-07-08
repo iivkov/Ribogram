@@ -13,7 +13,7 @@
     <main>
 
     <div class="user_form">
-            <form method="post" action="registration.php">
+            <form method="post" action="registration.php" enctype="multipart/form-data">
             <?php echo display_error(); ?>
                 <input type="text" class="input" name="username" placeholder="Unesite korisničko ime" value="<?php echo $username; ?>">
                 <input type="text" class="input" name="description" placeholder="Unesite opis">

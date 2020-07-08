@@ -29,13 +29,15 @@ if (isset($_POST['register_btn']))
 
 function register()
 {
-	global $db, $errors, $username, $description, $image;
-	
+	global $db, $errors, $username, $description, $image, $msg;
+	$msg = "";
 	$password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
 	$password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 	$username = mysqli_real_escape_string($db, $_POST['username']);
 	$description = mysqli_real_escape_string($db, $_POST['description']);
-	$image = mysqli_real_escape_string($db, $_POST['image']);
+    // $image = mysqli_real_escape_string($db, $_POST['image']);
+    $image = $_FILES['image']['name'] ?? '';
+    $target = "../images/".basename($image);
 
     if (empty($username))
     { 
@@ -76,6 +78,15 @@ function register()
       $query = "INSERT INTO users (password, username, description, image) VALUES('$password', '$username', '$description', '$image')";
       mysqli_query($db, $query);
       header('location: ../index.php');
+    }
+
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $target))
+    {
+        $msg = "Image uploaded successfully";
+    }
+    else
+    {
+        $msg = "Failed to upload image";
     }
 }
 
@@ -131,7 +142,6 @@ function update()
 	$password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 	$username = mysqli_real_escape_string($db, $_POST['username']);
 	$description = mysqli_real_escape_string($db, $_POST['description']);
-	$image = mysqli_real_escape_string($db, $_POST['image']);
 
     if (empty($username))
     { 
@@ -140,10 +150,6 @@ function update()
     if (empty($description))
     { 
         array_push($errors, "Potrebno je unijeti opis."); 
-    }
-    if (empty($image))
-    { 
-        array_push($errors, "Potrebno je učitati sliku."); 
     }
     if (empty($password_1))
     { 
@@ -158,7 +164,7 @@ function update()
   {
       $password = md5($password_1);
       $id_user = $_SESSION['user']['id_user'];
-      $sql = "UPDATE users SET password='$password', username='$username', description='$description', image='$image' WHERE id_user='$id_user'";
+      $sql = "UPDATE users SET password='$password', username='$username', description='$description' WHERE id_user='$id_user'";
       mysqli_query($db, $sql);
       header('location: ../index.php');
     }

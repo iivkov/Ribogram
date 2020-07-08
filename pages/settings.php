@@ -26,7 +26,7 @@
         ?>
                 <input type="text" class="input" name="username" placeholder="Unesite korisničko ime" value="<?php echo $username; ?>">
                 <input type="text" class="input" name="description" placeholder="Unesite opis" value="<?php echo $description; ?>">
-                <input type="file" class="input" name="image" value="<?php echo $image; ?>">
+                <!-- <input type="file" class="input" name="image" value="<?php echo $image; ?>"> -->
 		        <input type="password" class="input" name="password_1" placeholder="Unesite novu zaporku">
                 <input type="password" class="input" name="password_2" placeholder="Ponovno unesite novu zaporku">
 		        <button type="submit" class="button" name="update_btn">Ažuriraj</button>
