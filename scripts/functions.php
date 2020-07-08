@@ -191,3 +191,33 @@ function add()
         $msg = "Failed to upload image";
     }
 }
+
+if (isset($_POST['edit_image_btn'])) 
+{
+	edit_image();
+}
+
+function edit_image()
+{
+	global $db, $errors, $image_info, $access, $id_image;
+	
+	$image_info = mysqli_real_escape_string($db, $_POST['image_info']);
+    $access = mysqli_real_escape_string($db, $_POST['access']);
+    $id_image = mysqli_real_escape_string($db, $_POST['id_image']);
+
+    if (empty($image_info))
+    { 
+        array_push($errors, "Potrebno je unijeti opis slike."); 
+    }
+    if (empty($access))
+    { 
+        array_push($errors, "Potrebno je postaviti pravo pristupa."); 
+    }
+  
+  if (count($errors) == 0) 
+  {
+      $sql = "UPDATE images SET image_info='$image_info', access='$access' WHERE id_image='$id_image'";
+      mysqli_query($db, $sql);
+      header('location: myprofile.php');
+  }
+}

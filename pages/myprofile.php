@@ -38,6 +38,7 @@
             echo "<img src='../images/".$row['image']."' >";
             echo "<p>".$row['image_info']."</p>";
             echo '<td><a href="delete_image.php?id_image='.$row["id_image"].'">Obriši</a></td>';
+            echo '<td><a href="edit_image.php?id_image='.$row["id_image"].'">Izmjeni</a></td>';
         echo "</div>";
     }
 }
