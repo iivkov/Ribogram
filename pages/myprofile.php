@@ -27,6 +27,20 @@
 	    </p>
     </article>
 
+    <article>
+    <?php
+    $id_user = $_SESSION['user']['id_user'];
+    $query = "SELECT * FROM images WHERE id_user=$id_user";
+    $result = mysqli_query($db, $query);
+    while ($row = mysqli_fetch_array($result)) {
+      echo "<div id='img_div'>";
+      	echo "<img src='../images/".$row['image']."' >";
+      	echo "<p>".$row['image_info']."</p>";
+      echo "</div>";
+    }
+  ?>
+    </article>
+
     </main>
 
 </body>
